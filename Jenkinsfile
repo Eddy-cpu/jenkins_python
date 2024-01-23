@@ -4,7 +4,7 @@ podTemplate(containers: [
     image: 'jenkins/inbound-agent-python:latest', 
     command: 'sleep', 
     args: '30d')
-]) 
+])
 {
   node(POD_LABEL)
   {
