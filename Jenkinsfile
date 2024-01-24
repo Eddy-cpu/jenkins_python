@@ -37,7 +37,9 @@ podTemplate(containers: [
             sh 'apt-get install -y python3-venv'
             sh 'echo "Y" | python3 -m venv venv'
             sh '. venv/bin/activate'
-            sh 'pip install --user python3-requests'
+            sh 'pip install python3-requests'
+            sh 'pip install --user pipx'
+            sh 'pipx install python3-requests'
             sh 'python3 jenkins_python/cal.py'
           }
           stage('Static Code Check')
