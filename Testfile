@@ -1,4 +1,15 @@
-stage('System Monitoring') {
+podTemplate(containers: [
+  containerTemplate(
+    name: 'python', 
+    image: 'jenkins/inbound-agent-python:latest', 
+    command: 'sleep',
+    args: '30d')
+]) 
+{
+  node(POD_LABEL)
+  {
+    stage('Get a Python Project')
+{
     sh 'apt update'
     sh 'apt install -y nano'
     echo 'Y'
@@ -6,4 +17,6 @@ stage('System Monitoring') {
     echo 'Y'
     sh 'apt install python3'
     sh 'python3 MenuSelection.py'
+}
+}
 }
