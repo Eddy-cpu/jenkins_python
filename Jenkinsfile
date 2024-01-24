@@ -2,7 +2,7 @@ podTemplate(containers: [
   containerTemplate(
     name: 'python', 
     image: 'jenkins/inbound-agent-python:latest', 
-    command: 'sleep', 
+    command: 'sleep',
     args: '30d')
 ]) 
 {
@@ -37,8 +37,8 @@ podTemplate(containers: [
             sh 'apt install -y python3-venv'
             echo 'Y'
             sh 'python3 -m venv venv'
-            sh '. venv/bin/activate'
-            sh 'pip install python3-requests'
+            sh 'source path/to/venv/bin/activate'
+            sh 'pip install requests'
             sh 'python3 jenkins_python/cal.py'
           }
           stage('Static Code Check')
