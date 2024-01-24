@@ -32,10 +32,10 @@ podTemplate(containers: [
           {
             sh 'pwd'
             sh 'ls -la'
-            sh 'python -V'
+            sh 'python3 -V'
             sh 'apt install -y pip'
             sh 'pip install requests'
-            sh 'python jenkins_python/cal.py'         
+            sh 'python3 jenkins_python/cal.py'         
           }
           stage('Static Code Check')
           {
