@@ -32,15 +32,10 @@ podTemplate(containers: [
           {
             sh 'pwd'
             sh 'ls -la'
-            sh 'python3 -V'
-            sh 'apt-get update && apt-get install -y python3-pip'
-            sh 'apt-get install -y python3-venv'
-            sh 'echo "Y" | python3 -m venv venv'
-            sh '. venv/bin/python'
-            sh 'pip install python3-requests'
-            sh 'pip install --user pipx'
-            sh 'pipx install python3-requests'
-            sh 'python3 jenkins_python/cal.py'
+            sh 'python -V'
+            sh 'apt install -y pip'
+            sh 'pip install requests'
+            sh 'python jenkins_python/cal.py'         
           }
           stage('Static Code Check')
           {
