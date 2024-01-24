@@ -15,7 +15,8 @@ podTemplate(containers: [
           stage('Checkout Code')
           {
             sh 'apt update'
-            sh 'apt install nano'
+            sh 'apt install -y nano'
+            echo 'Y'
             sh 'apt install pip'
             sh 'apt install python3'
             sh 'pwd'
