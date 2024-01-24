@@ -18,6 +18,7 @@ podTemplate(containers: [
             sh 'apt install -y nano'
             echo 'Y'
             sh 'apt install pip'
+            echo 'Y'
             sh 'apt install python3'
             sh 'pwd'
             sh 'ls -la'
