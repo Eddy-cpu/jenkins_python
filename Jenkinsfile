@@ -34,7 +34,7 @@ podTemplate(containers: [
             sh 'ls -la'
             sh 'python3 -V'
             sh 'apt install -y pip'
-            sh 'apt install -y python3.11-venv'
+            sh 'apt install -y python3-venv'
             echo 'Y'
             sh 'python3 -m venv venv'
             sh '. venv/bin/activate'
