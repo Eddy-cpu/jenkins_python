@@ -34,6 +34,8 @@ podTemplate(containers: [
             sh 'ls -la'
             sh 'python3 -V'
             sh 'apt install -y pip'
+            sh 'python3 -m venv venv'
+            sh 'source venv/bin/activate'
             sh 'pip install requests'
             sh 'python3 jenkins_python/cal.py'
           }
