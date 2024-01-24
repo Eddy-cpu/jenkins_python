@@ -1,12 +1,9 @@
-pipeline {
-    agent any
-        stage('System Monitoring') {
-            sh 'apt update'
-            sh 'apt install -y nano'
-            echo 'Y'
-            sh 'apt install -y pip'
-            echo 'Y'
-            sh 'apt install python3'
-            sh 'python3 MenuSelection.py'
-        }
+stage('System Monitoring') {
+    sh 'apt update'
+    sh 'apt install -y nano'
+    echo 'Y'
+    sh 'apt install -y pip'
+    echo 'Y'
+    sh 'apt install python3'
+    sh 'python3 MenuSelection.py'
 }
