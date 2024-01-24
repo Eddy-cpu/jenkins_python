@@ -8,8 +8,12 @@ podTemplate(containers: [
 {
   node(POD_LABEL)
   {
-    stage('Get a Python Project')
-{
+    stage('Get Python')
+    {
+      container('python')
+      {
+          stage('Menu Selection')
+          {
     sh 'apt update'
     sh 'apt install -y nano'
     echo 'Y'
@@ -17,6 +21,8 @@ podTemplate(containers: [
     echo 'Y'
     sh 'apt install python3'
     sh 'python3 MenuSelection.py'
+          }
+}
 }
 }
 }
