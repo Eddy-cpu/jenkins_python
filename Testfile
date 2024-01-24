@@ -1,11 +1,12 @@
 pipeline {
     agent any
-
-    stages {
         stage('System Monitoring') {
-                script {
-                    sh 'python MenuSelection.py'
-            }
+            sh 'apt update'
+            sh 'apt install -y nano'
+            echo 'Y'
+            sh 'apt install -y pip'
+            echo 'Y'
+            sh 'apt install python3'
+            sh 'python3 MenuSelection.py'
         }
-    }
 }
