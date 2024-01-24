@@ -11,6 +11,10 @@ podTemplate(containers: [
     stage('Get a Python Project')
     {
       container('python')
+      sh 'apt update'
+      sh 'apt install nano'
+      sh 'apt install pip'
+      sh 'apt install python3'
       {
           stage('Checkout Code')
           {
