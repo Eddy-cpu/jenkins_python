@@ -38,7 +38,7 @@ podTemplate(containers: [
             echo 'Y'
             sh 'python3 -m venv venv'
             sh '. venv/bin/activate'
-            sh 'pip install requests'
+            sh 'pip install python3-requests'
             sh 'python3 jenkins_python/cal.py'
           }
           stage('Static Code Check')
