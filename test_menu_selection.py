@@ -1,5 +1,5 @@
 import unittest
-from menu_selection import check_disk_usage
+from menu_selection.py import check_disk_usage
 
 class TestMenuSelection(unittest.TestCase):
 
