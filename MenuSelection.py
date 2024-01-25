@@ -1,3 +1,4 @@
+pip install psutil
 import psutil
 import requests
 
