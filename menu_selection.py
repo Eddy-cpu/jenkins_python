@@ -1,3 +1,4 @@
+
 import psutil
 import requests
 
@@ -21,8 +22,8 @@ class SystemMonitor:
         try:
             socket_info = psutil.net_if_addrs()
             return 'lo' in socket_info
-        except Exception as e:
-            print(f"Error checking localhost availability: {e}")
+        except SpecificException as ex:
+            print(f"Error checking localhost availability: {ex}")
             return False
 
     @staticmethod
