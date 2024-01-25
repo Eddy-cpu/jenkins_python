@@ -43,7 +43,7 @@ podTemplate(containers: [
           }
           stage('Static Code Check')
           {
-            sh 'apt install pylint'
+            sh 'apt install -y pylint'
             echo 'Y'
             sh 'pylint jenkins_python/MenuSelection.py'
           }
