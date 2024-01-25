@@ -43,9 +43,9 @@ podTemplate(containers: [
           }
           stage('Static Code Check')
           {
-            sh 'apt install -y flake8'
+            sh 'apt install -y pylint'
             echo 'Y'
-            sh 'flake8 jenkins_python/MenuSelection.py'
+            sh 'pylint jenkins_python/MenuSelection.py'
           }
           stage('Unit Test Check')
           {
