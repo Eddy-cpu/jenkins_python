@@ -1,6 +1,6 @@
 import unittest
 
-class testcal(unittest.TestCase):
+class test_menu_selection(unittest.TestCase):
   def test_msg(self):
     a = 'some'
     b = 'some'
