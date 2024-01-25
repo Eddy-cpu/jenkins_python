@@ -1,5 +1,5 @@
 import unittest
-from menu_selection import systemmonitor
+from menu_selection import SystemMonitor
 
 class TestMenuSelection(unittest.TestCase):
 
