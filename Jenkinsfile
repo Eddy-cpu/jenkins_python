@@ -49,7 +49,6 @@ podTemplate(containers: [
           }
           stage('Unit Test Check')
           {
-            sh 'cd jenkins_python'
             sh 'python3 -m unittest jenkins_python/test_menu_selection.py'          
           }
         
