@@ -1,5 +1,5 @@
 import unittest
-from menu_selection import check_disk_usage  # Import the functions you want to test from menu_selection.py
+from jenkins_python/menu_selection import check_disk_usage  # Import the functions you want to test from menu_selection.py
 
 class TestMenuSelection(unittest.TestCase):
 
