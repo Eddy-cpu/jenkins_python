@@ -22,7 +22,7 @@ class SystemMonitor:
         try:
             socket_info = psutil.net_if_addrs()
             return 'lo' in socket_info
-        except SpecificException as ex:
+        except ValueError as ex:
             print(f"Error checking localhost availability: {ex}")
             return False
 
@@ -36,6 +36,7 @@ class SystemMonitor:
             return False
 
 def main():
+    """Disk and CPU."""
     monitor = SystemMonitor()
 
     disk_status = monitor.check_disk_usage()
