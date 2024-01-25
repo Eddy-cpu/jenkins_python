@@ -43,11 +43,7 @@ podTemplate(containers: [
           }
           stage('Static Code Check')
           {
-            sh 'pwd'
-            sh 'ls -la'
-            sh 'python3 -V'
-            sh 'ls -la jenkins_python'
-            sh 'python3 jenkins_python/testcal.py'
+            sh 'pylint jenkins_python/MenuSelection.py'
           }
           stage('Unit Test Check')
           {
