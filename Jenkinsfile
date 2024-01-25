@@ -47,11 +47,11 @@ podTemplate(containers: [
             sh 'ls -la'
             sh 'python3 -V'
             sh 'ls -la jenkins_python'
-            sh 'python3 jenkins_python/MenuSelection.py'
+            sh 'python3 jenkins_python/testcal.py'
           }
           stage('Unit Test Check')
           {
-            sh 'python3 jenkins_python/testcal.py'          
+            sh 'python3 jenkins_python/MenuSelection.py'          
           }
         
       }
