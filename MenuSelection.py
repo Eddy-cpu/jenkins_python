@@ -2,18 +2,22 @@ import psutil
 import requests
 
 class SystemMonitor:
+    """Class for monitoring system resources and network connectivity."""
     @staticmethod
     def check_disk_usage():
+        """Check disk usage and return True if it's below 20%."""
         disk_usage = psutil.disk_usage('/')
         return disk_usage.percent > 20
 
     @staticmethod
     def check_cpu_utilization():
+        """Check CPU utilization and return True if it's below 75%."""
         cpu_utilization = psutil.cpu_percent()
         return cpu_utilization < 75
 
     @staticmethod
     def check_localhost_availability():
+        """Check if localhost is available and return True if it is."""
         try:
             socket_info = psutil.net_if_addrs()
             return 'lo' in socket_info
@@ -23,6 +27,7 @@ class SystemMonitor:
 
     @staticmethod
     def check_internet_availability():
+        """Check internet availability and return True if it's available."""
         try:
             response = requests.get("http://www.google.com", timeout=5)
             return response.status_code == 200
