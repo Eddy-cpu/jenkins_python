@@ -1,4 +1,4 @@
-
+"""Module for handling menu selection."""
 import psutil
 import requests
 
