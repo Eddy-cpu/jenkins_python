@@ -1,5 +1,5 @@
 import unittest
-from menu_selection import your_menu_function1, your_menu_function2  # Import the functions you want to test from menu_selection.py
+from menu_selection import   # Import the functions you want to test from menu_selection.py
 
 class TestMenuSelection(unittest.TestCase):
 
