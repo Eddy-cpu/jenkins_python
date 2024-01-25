@@ -1,3 +1,6 @@
+import psutil
+import requests
+
 class SystemMonitor:
     @staticmethod
     def check_disk_usage():
