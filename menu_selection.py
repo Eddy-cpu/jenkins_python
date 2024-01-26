@@ -1,4 +1,5 @@
 """Module for handling menu selection."""
+import socket
 import psutil
 import requests
 
@@ -20,10 +21,9 @@ class SystemMonitor:
     def check_localhost_availability():
         """Check if localhost is available and return True if it is."""
         try:
-            socket_info = psutil.net_if_addrs()
-            return 'lo' in socket_info
-        except ValueError as ex:
-            print(f"Error checking localhost availability: {ex}")
+            localhost_status = socket.gethostbyname('localhost')
+            return localhost_status == '127.0.0.1'
+        except socket.error:
             return False
 
     @staticmethod
