@@ -1,5 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
+import requests
 from menu_selection import SystemMonitor
 
 class TestSystemMonitor(unittest.TestCase):
