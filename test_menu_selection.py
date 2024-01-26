@@ -1,5 +1,6 @@
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
+import requests
 from menu_selection import SystemMonitor
 
 class TestSystemMonitor(unittest.TestCase):
@@ -16,16 +17,23 @@ class TestSystemMonitor(unittest.TestCase):
         self.assertFalse(monitor.check_cpu_utilization())
 
     @patch('psutil.net_if_addrs')
-    def test_check_localhost(self, mock_gethostbyname):
-        mock_gethostbyname.return_value = '127.0.0.1'
-        monitor = SystemMonitor()
-        self.assertTrue(monitor.check_localhost())
+    def test_check_localhost_availability(self, mock_net_if_addrs):
+        mock_net_if_addrs.return_value = {'lo': MagicMock()}
+        result = SystemMonitor.check_localhost_availability()
+        self.assertTrue(result)
 
     @patch('requests.get')
-    def test_check_internet_access(self, mock_get):
-        mock_get.return_value.status_code = 200
-        monitor = SystemMonitor()
-        self.assertTrue(monitor.check_internet_access())
+    def test_check_internet_availability_with_connection(self, mock_requests_get):
+        mock_response = MagicMock()
+        mock_response.status_code = 200
+        mock_requests_get.return_value = mock_response
+        result = SystemMonitor.check_internet_availability()
+        self.assertTrue(result)
+
+    @patch('requests.get', side_effect=requests.ConnectionError)
+    def test_check_internet_availability_without_connection(self, mock_requests_get):
+        result = SystemMonitor.check_internet_availability()
+        self.assertFalse(result)
 
 if __name__ == '__main__':
     unittest.main()
