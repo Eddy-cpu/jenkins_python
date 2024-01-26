@@ -15,7 +15,7 @@ class TestSystemMonitor(unittest.TestCase):
         monitor = SystemMonitor()
         self.assertFalse(monitor.check_cpu_utilization())
 
-    @patch('socket.gethostbyname')
+    @patch('psutil.net_if_addrs')
     def test_check_localhost(self, mock_gethostbyname):
         mock_gethostbyname.return_value = '127.0.0.1'
         monitor = SystemMonitor()
